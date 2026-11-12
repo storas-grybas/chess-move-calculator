@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Best Chess Move Calculator (standalone)</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<main style="max-width:1100px;margin:0 auto;padding:16px">
+<p>Standalone copy of the tool from <a href="https://bestchessmovecalculator.com/">bestchessmovecalculator.com</a>. For learning and reviewing finished games only.</p>
+<section id="calculator" class="tool" aria-labelledby="calc-h">
+  <h2 id="calc-h">Find the best move in any position</h2>
+  <div class="tool-grid">
+    <div>
+      <div id="board" class="board" aria-label="Chess board"></div>
+      <div class="row">
+        <button id="btnUndo" type="button">Undo</button>
+        <button id="btnFlip" type="button">Flip board</button>
+        <button id="btnReset" type="button">Start position</button>
+      </div>
+    </div>
+    <div class="panel">
+      <label for="fen">Position (FEN)</label>
+      <div class="row"><input id="fen" type="text" spellcheck="false" autocomplete="off"><button id="btnFen" type="button">Load</button></div>
+      <p class="small">Paste a FEN, or move pieces on the board: click a piece, then click the square it should go to.</p>
+      <div class="row">
+        <label for="depth">Search depth</label>
+        <select id="depth"><option value="12">12 (fast)</option><option value="16" selected>16 (default)</option><option value="20">20 (strong, slower)</option></select>
+      </div>
+      <button id="btnCalc" class="primary" type="button">Calculate best move</button>
+      <p id="status" class="small" aria-live="polite">Engine loading&hellip;</p>
+      <ol id="lines" class="lines" aria-live="polite"></ol>
+      <button id="btnPlay" type="button" disabled>Play the best move</button>
+      <p class="note">For study and finished games only. Using an engine during a live game breaks the fair-play rules of every major chess site.</p>
+    </div>
+  </div>
+</section>
+</main>
+<script src="vendor/chess.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
